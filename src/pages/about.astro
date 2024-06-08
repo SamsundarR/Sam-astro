@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
 
 const pageTitle = "About Me";
 
@@ -11,7 +12,7 @@ const identity = {
   hobbies: ["photography", "birdwatching", "baseball"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro"];
 
 const happy = true;
 const finished = false;
@@ -34,16 +35,26 @@ const skillColor = "navy";
             color: var(--skillColor);
             font-weight: bold;
         }
+        p,ul{
+          color: aliceblue
+        }
+        body{
+          justify-content: center;
+        }
+        .hero-image{
+          width: 10%;
+          align-items: center;
+          height: 5%;
+        }
       </style>
   </head>
   <body>
-    <a href="/">Home</a>&nbsp;
-    <a href="/about/">About</a>&nbsp;
-    <a href="/blog/">Blog</a>
+    <Navigation/><Footer/>
     <h1>{pageTitle}</h1>
+    <center><img src="/logo.png" alt="Example Image" class="hero-image"/></center>
     <h2>... and my new Astro site!</h2>
 
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
+    <center><p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
 
     <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
     <p>Here are a few facts about me:</p>
@@ -58,11 +69,5 @@ const skillColor = "navy";
 <ul>
   {skills.map((skill) => <li class="skill">{skill}</li>)}
 </ul>
-{happy && <p>I am happy to be learning Astro!</p>}
-
-{finished && <p>I finished this tutorial!</p>}
-
-{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-<Footer/>
   </body>
 </html>
